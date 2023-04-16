@@ -1,0 +1,50 @@
+.rodape  {
+    background: #f8f9fa;
+    padding-top: 40px;
+}
+
+.rodape-content  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.rodape-content p {
+    max-width: 500px;
+    margin: 10px auto;
+    line-height: 28px;
+    font-size: 14px;
+}
+
+.rodape-menu {
+  float: right;
+
+}
+
+.rodape-menu ul {
+  display: flex;
+}
+
+.rodape-menu ul li {
+    padding-right: 10px;
+    display: block;
+}
+
+.rodape-menu ul li a {
+  text-decoration: none;
+  color: #495057;
+}
+
+.rodape-menu ul li a:hover {
+  color: #FF4800;
+}
+
+@media (max-width:500px)  {
+    .rodape-menu ul {
+        display: flex;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+}

@@ -1,0 +1,40 @@
+@media(min-width: 1420px) {
+    :host ::ng-deep .p-menubar-start {
+        width: 20%;
+    }
+
+    :host ::ng-deep p-menubarsub {
+        width: 60%;
+    }
+
+    :host ::ng-deep .p-menubar-end {
+        width: 20%;
+    }
+
+    :host ::ng-deep .bem-vindo {
+        display: block !important;
+    }
+}
+
+:host ::ng-deep p-menubarsub {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+:host ::ng-deep .p-menuitem:hover {
+    border-bottom: 2px solid #FF4800;
+}
+
+:host ::ng-deep .bem-vindo {
+    white-space: nowrap;
+    display: none;
+}
+
+:host ::ng-deep .icon {
+    font-size: 2.5rem;
+    width: 40px !important;
+    height: 40px !important;
+    color: #FF4800;
+    cursor: pointer;
+}

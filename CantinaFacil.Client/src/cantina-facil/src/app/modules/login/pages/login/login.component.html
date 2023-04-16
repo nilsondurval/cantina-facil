@@ -1,0 +1,45 @@
+<div class="d-flex align-items-center justify-content-center m-3 h-100">
+    <mat-card>
+        <mat-card-content>
+            <div class="d-flex align-items-center justify-content-center">
+                <div class="login d-block">
+                    <div class="pb-2 d-flex align-items-center justify-content-center">
+                        <img style="width: 60%;" src="/assets/images/cantina-facil-logo.png" alt="Cantina fácil logo">
+                    </div>
+    
+                    <div class="pb-2 d-flex align-items-center justify-content-center">
+                        <h4>{{mensagens.LOGIN}}</h4>
+                    </div>
+    
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <form (ngSubmit)="logar()" [formGroup]="loginForm" #form="ngForm" id="formulario-login">
+                                <div class="p-2">
+                                    <acc-tools-input identifier="Email" type="email" [label]="mensagens.EMAIL"
+                                        [parentForm]="loginForm" [readonly]="false" [required]="true" [ngForm]="form">
+                                    </acc-tools-input>
+                                </div>
+                                <div class="p-2">
+                                    <acc-tools-input identifier="Senha" type="password" [label]="mensagens.SENHA"
+                                        [parentForm]="loginForm" [readonly]="false" [required]="true" [ngForm]="form">
+                                    </acc-tools-input>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+    
+                    <div class="d-flex align-items-center justify-content-end">
+                        <a href="#">
+                            <p>{{mensagens.ESQUECI_MINHA_SENHA}}</p>
+                        </a>
+                    </div>
+    
+                    <div class="pt-4 d-flex align-items-center justify-content-center">
+                        <acc-tools-botao-confirmar [texto]="mensagens.ENTRAR" formulario="formulario-login">
+                        </acc-tools-botao-confirmar>
+                    </div>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

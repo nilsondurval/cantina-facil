@@ -1,0 +1,31 @@
+<p-menubar [model]="items" styleClass="{text-align: center}">
+    <ng-template pTemplate="start">
+        <img src="assets/images/cantina-facil-logo.png" height="80" class="mr-2">
+    </ng-template>
+    <ng-template pTemplate="end">
+        <div class="d-flex align-items-center justify-content-end me-4 w-100">
+            <span class="bem-vindo">{{bemVindo}}</span>
+            <mat-icon class="icon ms-3">shopping_cart</mat-icon>
+            <mat-icon class="icon ms-3">notifications</mat-icon>
+            <mat-icon class="icon ms-3 me-3" (click)="op.toggle($event)">account_circle</mat-icon>
+        </div>
+    </ng-template>
+</p-menubar>
+
+<p-overlayPanel #op [showCloseIcon]="false" [style]="{width: '250px'}">
+    <mat-list>
+        <mat-list-item>
+            <div style="cursor: pointer;" class="d-flex align-items-center justify-content-start">
+                <mat-icon style="color: #FF4800;" class="icon ms-3 me-3">settings</mat-icon>Configurações
+            </div>
+        </mat-list-item>
+        
+        <mat-divider></mat-divider>
+        
+        <mat-list-item>
+            <div (click)="logout()" style="cursor: pointer;" class="d-flex align-items-center justify-content-start">
+                <mat-icon style="color: #FF4800;" class="icon ms-3 me-3">logout</mat-icon>Sair
+            </div>
+        </mat-list-item>
+    </mat-list>
+</p-overlayPanel>
