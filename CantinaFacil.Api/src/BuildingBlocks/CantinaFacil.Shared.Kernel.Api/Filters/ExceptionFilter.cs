@@ -26,7 +26,7 @@ namespace CantinaFacil.Shared.Kernel.Api.Filters
                 context.Result = new BadRequestObjectResult(new ResponseResult
                 {
                     Success = false,
-                    Notifications = new List<string> { "Sistema indisponível no momento, se o erro persistir, contate o administrador do sistema." }
+                    Notifications = new List<string> { context.Exception.Message }
                 });
             }
 
