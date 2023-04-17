@@ -27,7 +27,7 @@ namespace CantinaFacil.Infrastructure.Authentication
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = claims,
-                Expires = DateTime.UtcNow.AddMinutes(Convert.ToInt32(_config["Jwt:TokenExpirationInMinutes"])),
+                Expires = DateTime.UtcNow.AddMinutes(Convert.ToInt32(expirationMinutes)),
                 Issuer = _config["Jwt:Issuer"],
                 Audience = _config["Jwt:Audience"],
                 SigningCredentials = new SigningCredentials(new RsaSecurityKey(rsa), SecurityAlgorithms.RsaSha256)
