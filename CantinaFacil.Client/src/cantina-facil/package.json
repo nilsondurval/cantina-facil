@@ -3,10 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "heroku-postbuild": "ng build --configuration production"
   },
   "private": true,
   "dependencies": {
@@ -23,6 +24,7 @@
     "@ngrx/store": "^15.4.0",
     "@npdjunior/ngx-accelerator-tools": "file:deps/npdjunior-ngx-accelerator-tools-0.0.1.tgz",
     "bootstrap": "^5.2.3",
+    "express": "^4.18.2",
     "file-saver": "^2.0.5",
     "js-cookie": "^3.0.1",
     "jwt-decode": "^3.1.2",
