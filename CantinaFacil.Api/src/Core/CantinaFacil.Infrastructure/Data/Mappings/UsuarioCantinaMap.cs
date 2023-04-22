@@ -13,14 +13,6 @@ namespace CantinaFacil.Infrastructure.Data.Mappings
             builder.ToTable("TB_USUARIO");
 
             builder
-                .HasKey(x => x.Id)
-                .HasName("PK_USUARIO");
-
-            builder
-                .Property(x => x.Id)
-                .HasColumnName("CD_USUARIO");
-
-            builder
                 .Property(x => x.PerfilId)
                 .HasColumnName("CD_PERFIL");
 
