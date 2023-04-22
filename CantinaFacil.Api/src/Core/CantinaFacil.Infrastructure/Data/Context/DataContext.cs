@@ -1,11 +1,11 @@
 ﻿using FluentValidation.Results;
 using Microsoft.Extensions.Logging;
 using CantinaFacil.Domain.Aggregates.Perfis;
-using CantinaFacil.Domain.Aggregates.Permissoes;
 using CantinaFacil.Domain.Aggregates.Usuarios;
 using CantinaFacil.Infrastructure.Data.Mappings.Extensions;
 using CantinaFacil.Domain.Aggregates.Parametros;
 using Microsoft.EntityFrameworkCore;
+using CantinaFacil.Domain.Aggregates.Estabelecimentos;
 
 namespace CantinaFacil.Infrastructure.Data.Context
 {
@@ -15,16 +15,19 @@ namespace CantinaFacil.Infrastructure.Data.Context
 
         #region DbSets
 
-        public virtual DbSet<Usuario> Usuarios { get; set; }
-        public virtual DbSet<Perfil> Perfis { get; set; }
-        public virtual DbSet<Permissao> Permissoes { get; set; }
-        public virtual DbSet<Parametro> Parametros { get; set; }
+        public virtual DbSet<Usuario> Usuarios => Set<Usuario>();
+        public virtual DbSet<UsuarioCantina> UsuariosCantina => Set<UsuarioCantina>();
+        public virtual DbSet<Estabelecimento> Estabelecimentos => Set<Estabelecimento>();
+        public virtual DbSet<Produto> Produtos => Set<Produto>();
+        public virtual DbSet<Perfil> Perfis => Set<Perfil>();
+        public virtual DbSet<Permissao> Permissoes => Set<Permissao>();
+        public virtual DbSet<Parametro> Parametros => Set<Parametro>();
 
         #endregion
 
         public DataContext()
         {
-
+            
         }
 
         public DataContext(DbContextOptions options) : base(options)

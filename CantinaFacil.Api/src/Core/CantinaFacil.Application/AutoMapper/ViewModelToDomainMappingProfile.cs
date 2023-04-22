@@ -3,7 +3,6 @@ using CantinaFacil.Application.ViewModels.Usuario;
 using CantinaFacil.Domain.Aggregates.Usuarios;
 using CantinaFacil.Application.ViewModels.Perfil;
 using CantinaFacil.Domain.Aggregates.Perfis;
-using CantinaFacil.Domain.Aggregates.Permissoes;
 
 namespace CantinaFacil.Application.AutoMapper
 {

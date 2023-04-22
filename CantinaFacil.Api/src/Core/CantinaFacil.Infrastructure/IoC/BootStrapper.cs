@@ -2,7 +2,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using CantinaFacil.Domain.Aggregates.Usuarios.Repository;
 using CantinaFacil.Domain.Aggregates.Usuarios.Services;
-using CantinaFacil.Domain.Authentication;
 using CantinaFacil.Infrastructure.Data;
 using CantinaFacil.Infrastructure.Data.Context;
 using CantinaFacil.Infrastructure.Data.Repository;
@@ -10,10 +9,11 @@ using CantinaFacil.Shared.Kernel.Data;
 using CantinaFacil.Shared.Kernel.Domain.Events;
 using CantinaFacil.Shared.Kernel.Domain.Handlers;
 using CantinaFacil.Shared.Kernel.Mediator;
-using CantinaFacil.Infrastructure.Authentication;
+using CantinaFacil.Infrastructure.Auth;
 using CantinaFacil.Application.Services.Interfaces;
 using CantinaFacil.Application.Services;
 using CantinaFacil.Domain.Aggregates.Parametros.Repository;
+using CantinaFacil.Domain.Auth.Services;
 
 namespace CantinaFacil.Infrastructure.IoC
 {

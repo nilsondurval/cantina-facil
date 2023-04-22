@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace CantinaFacil.Domain.Authentication
+namespace CantinaFacil.Domain.Auth.Services
 {
     public interface IJwtService
     {

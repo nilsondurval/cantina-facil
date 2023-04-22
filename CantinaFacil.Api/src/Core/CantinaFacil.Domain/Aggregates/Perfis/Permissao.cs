@@ -1,7 +1,7 @@
 ﻿using CantinaFacil.Shared.Kernel.Domain;
-using CantinaFacil.Domain.Aggregates.Perfis;
+using CantinaFacil.Domain.Aggregates.Perfis.Builders;
 
-namespace CantinaFacil.Domain.Aggregates.Permissoes
+namespace CantinaFacil.Domain.Aggregates.Perfis
 {
     public class Permissao : Entity, IAggregateRoot
     {
@@ -11,14 +11,17 @@ namespace CantinaFacil.Domain.Aggregates.Permissoes
 
         protected Permissao()
         {
-
+            Nome = string.Empty;
+            DataCriacao = DateTime.Now;
+            PerfilPermissoes = Enumerable.Empty<PerfilPermissao>();
         }
 
-        public Permissao(int id, string nome)
+        public Permissao(PermissaoBuilder builder)
         {
-            Id = id;
-            Nome = nome;
+            Id = builder.Id;
+            Nome = builder.Nome;
             DataCriacao = DateTime.Now;
+            PerfilPermissoes = builder.PerfilPermissoes;
         }
     }
 }

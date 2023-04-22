@@ -13,14 +13,19 @@ namespace CantinaFacil.Domain.Aggregates.Perfis
 
         protected Perfil()
         {
-
+            Nome = string.Empty;
+            DataCriacao = DateTime.Now;
+            Usuarios = Enumerable.Empty<Usuario>();
+            PerfilPermissoes = Enumerable.Empty<PerfilPermissao>();
         }
 
         public Perfil(PerfilBuilder builder)
         {
             Id = builder.Id;
             Nome = builder.Nome;
-            DataCriacao = DateTime.Now;
+            DataCriacao = builder.DataCriacao;
+            Usuarios = builder.Usuarios;
+            PerfilPermissoes = builder.PerfilPermissoes;
         }
     }
 }

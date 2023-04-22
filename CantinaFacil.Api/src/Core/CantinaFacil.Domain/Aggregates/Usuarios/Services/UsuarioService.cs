@@ -3,7 +3,7 @@ using CantinaFacil.Shared.Kernel.Domain.Services;
 using CantinaFacil.Shared.Kernel.Mediator;
 using CantinaFacil.Domain.Aggregates.Usuarios.Repository;
 using CantinaFacil.Domain.Messages;
-using CantinaFacil.Domain.Authentication;
+using CantinaFacil.Domain.Auth.Services;
 
 namespace CantinaFacil.Domain.Aggregates.Usuarios.Services
 {
