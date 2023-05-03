@@ -24,6 +24,7 @@ namespace CantinaFacil.Infrastructure.IoC
             // Application
             services.AddScoped<ILoginAppService, LoginAppService>();
             services.AddScoped<IParametroAppService, ParametroAppService>();
+            services.AddScoped<IUsuarioAppService, UsuarioAppService>();
 
             // Mediator
             services.AddScoped<IMediatorHandler, MediatorHandler>();

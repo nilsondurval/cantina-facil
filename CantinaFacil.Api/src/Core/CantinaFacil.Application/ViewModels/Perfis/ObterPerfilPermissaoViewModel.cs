@@ -2,11 +2,11 @@
 
 namespace CantinaFacil.Application.ViewModels.Perfil
 {
-    public class PerfilPermissaoViewModel
+    public class ObterPerfilPermissaoViewModel
     {
         public Guid PerfilId { get; private set; }
         public Guid PermissaoId { get; private set; }
-        public PerfilViewModel? Perfil { get; private set; }
-        public PermissaoViewModel? Permissao { get; set; }
+        public ObterPerfilViewModel? Perfil { get; private set; }
+        public ObterPermissaoViewModel? Permissao { get; set; }
     }
 }

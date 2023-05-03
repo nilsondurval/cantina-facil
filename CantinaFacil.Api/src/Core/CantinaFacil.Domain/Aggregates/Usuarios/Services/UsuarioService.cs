@@ -21,6 +21,30 @@ namespace CantinaFacil.Domain.Aggregates.Usuarios.Services
             _jwtService = jwtService;
         }
 
+        public async Task AdicionarAsync(Usuario usuario)
+        {
+            await _usuarioRepository.AddAsync(usuario);
+        }
+
+        public async Task AtualizarAsync(int usuarioId, Usuario usuario)
+        {
+            usuario.AtribuirId(usuarioId);
+            await Task.Run(() => _usuarioRepository.Update(usuario));
+        }
+
+        public async Task RemoverAsync(int usuarioId)
+        {
+            var usuario = await _usuarioRepository.GetByIdAsync(usuarioId);
+
+            if (usuario is null)
+            {
+                RaiseError(MessageResource.UsuarioNaoEncontrado);
+                return;
+            }
+
+            await _usuarioRepository.RemoveAsync(usuarioId);
+        }
+
         public string GerarToken(Usuario usuario, string privateKey, string expirationMinutes)
         {
             if (usuario is null)

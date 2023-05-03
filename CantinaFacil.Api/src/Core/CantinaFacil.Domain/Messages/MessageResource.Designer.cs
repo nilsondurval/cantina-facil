@@ -95,5 +95,14 @@ namespace CantinaFacil.Domain.Messages {
                 return ResourceManager.GetString("UsuarioInvalido", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Usuário não encontrado..
+        /// </summary>
+        public static string UsuarioNaoEncontrado {
+            get {
+                return ResourceManager.GetString("UsuarioNaoEncontrado", resourceCulture);
+            }
+        }
     }
 }

@@ -10,10 +10,12 @@ namespace CantinaFacil.Application.AutoMapper
     {
         public DomainToViewModelMappingProfile()
         {
-            CreateMap<Usuario, UsuarioViewModel>();
-            CreateMap<Perfil, PerfilViewModel>();
-            CreateMap<Permissao, PermissaoViewModel>();
-            CreateMap<PerfilPermissao, PerfilPermissaoViewModel>();
+            CreateMap<Usuario, AdicionarUsuarioViewModel>();
+            CreateMap<Usuario, ObterUsuarioViewModel>();
+            CreateMap<Usuario, AtualizarUsuarioViewModel>();
+            CreateMap<Perfil, ObterPerfilViewModel>();
+            CreateMap<Permissao, ObterPermissaoViewModel>();
+            CreateMap<PerfilPermissao, ObterPerfilPermissaoViewModel>();
         }
     }
 }

@@ -14,7 +14,7 @@ namespace CantinaFacil.Domain.Aggregates.Usuarios
         public string Senha { get; private set; }
         public string Telefone { get; private set; }
         public DateTime DataCriacao { get; private set; }
-        public Perfil Perfil { get; private set; }
+        public Perfil? Perfil { get; private set; }
 
         protected Usuario()
         {
@@ -26,7 +26,6 @@ namespace CantinaFacil.Domain.Aggregates.Usuarios
             Senha = string.Empty;
             Telefone = string.Empty;
             DataCriacao = DateTime.Now;
-            Perfil = new PerfilBuilder(0).Build();
         }
 
         public Usuario(UsuarioBuilder builder)
@@ -40,6 +39,11 @@ namespace CantinaFacil.Domain.Aggregates.Usuarios
             Telefone = builder.Telefone;
             Perfil = builder.Perfil;
             DataCriacao = DateTime.Now;
+        }
+
+        public void AtribuirId(int usuarioId)
+        {
+            Id = usuarioId;
         }
     }
 }

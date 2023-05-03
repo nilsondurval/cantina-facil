@@ -19,10 +19,10 @@ namespace BEC.Autorizacao.API.Controllers
         (
             INotificationHandler<DomainNotificationEvent> notifications,
             IMediatorHandler mediator,
-            ILoginAppService usuarioAppService
+            ILoginAppService loginAppService
         ) : base(notifications, mediator)
         {
-            _loginAppService = usuarioAppService;
+            _loginAppService = loginAppService;
         }
 
         [HttpPost]
