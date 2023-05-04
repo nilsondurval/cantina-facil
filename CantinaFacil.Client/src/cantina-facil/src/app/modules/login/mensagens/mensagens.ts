@@ -3,5 +3,7 @@ export const Mensagens = {
     SENHA: 'Senha',
     LOGIN: 'Login',
     ESQUECI_MINHA_SENHA: 'Esqueci minha senha',
-    ENTRAR: 'Entrar'
+    ENTRAR: 'Entrar',
+    NAO_POSSUI_CADASTRO: 'Não possui cadastro?',
+    CADASTRE_SE: 'Cadastre-se'
 }

@@ -53,4 +53,8 @@ export class LoginComponent implements OnInit, AfterViewInit {
       }
     });
   }
+
+  irParaCadastro(event: any): void {
+    this.router.navigate(['cadastre-se']);
+  }
 }

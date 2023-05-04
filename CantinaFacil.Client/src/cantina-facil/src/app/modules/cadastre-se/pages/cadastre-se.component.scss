@@ -1,10 +1,10 @@
 @media(min-width: 1420px) {
-    :host ::ng-deep .login {
+    :host ::ng-deep .cadastre-se {
         width: 50% !important;
     }
 }
 
-:host ::ng-deep .login {
+:host ::ng-deep .cadastre-se {
     width: 100%;
 }
 
@@ -12,7 +12,7 @@
     padding-bottom: 100px;
 }
 
-:host ::ng-deep .botao-cadastre-se {
+:host ::ng-deep .botao-login {
     color: #fff !important;
     background: #00A400 !important;
 }

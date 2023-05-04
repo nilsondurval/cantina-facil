@@ -12,6 +12,10 @@ const routes: Routes = [
     loadChildren: () => import('./modules/login/login.module').then(m => m.LoginModule),
   },
   {
+    path: 'cadastre-se',
+    loadChildren: () => import('./modules/cadastre-se/cadastre-se.module').then(m => m.CadastreSeModule),
+  },
+  {
     path: 'nao-autorizado',
     component: NaoAutorizadoComponent,
     data: {
