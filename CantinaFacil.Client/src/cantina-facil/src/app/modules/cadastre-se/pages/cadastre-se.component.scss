@@ -12,6 +12,11 @@
     padding-bottom: 100px;
 }
 
+:host ::ng-deep .botao-cadastre-se {
+    color: #fff !important;
+    background: #FF4800 !important;
+}
+
 :host ::ng-deep .botao-login {
     color: #fff !important;
     background: #00A400 !important;

@@ -1,5 +1,6 @@
 export const Mensagens = {
     CADASTRE_SE: 'Cadastre-se',
+    TIPO_USUARIO: 'Tipo de usuário',
     CPF: 'CPF',
     NOME: 'Nome',
     EMAIL: 'E-mail',
