@@ -1,5 +1,4 @@
 ﻿using CantinaFacil.Domain.Aggregates.Usuarios;
-using CantinaFacil.Domain.Aggregates.Usuarios.Builders;
 using CantinaFacil.Shared.Kernel.Domain.Enums;
 using CantinaFacil.Shared.Kernel.Domain;
 
@@ -9,11 +8,18 @@ namespace CantinaFacil.Domain.Aggregates.Perfis.Builders
     {
         public string Nome { get; private set; }
         public DateTime DataCriacao { get; private set; }
-        public List<Usuario> Usuarios { get; private set; }
+
+        public IEnumerable<Usuario> Usuarios { get; private set; }
+
+        public IEnumerable<PerfilPermissao> PerfilPermissoes { get; private set; }
 
         public PerfilBuilder(PerfilEnum id)
         {
             Id = (int)id;
+            Nome = string.Empty;
+            DataCriacao = DateTime.Now;
+            Usuarios = Enumerable.Empty<Usuario>();
+            PerfilPermissoes = Enumerable.Empty<PerfilPermissao>();
         }
 
         public PerfilBuilder AddNome(string nome)
@@ -22,14 +28,15 @@ namespace CantinaFacil.Domain.Aggregates.Perfis.Builders
             return this;
         }
 
-        public PerfilBuilder AddUsuario(UsuarioBuilder usuarioBuilder)
+        public PerfilBuilder AddUsuarios(IEnumerable<Usuario> usuarios)
         {
-            if (Usuarios == null)
-                Usuarios = new List<Usuario>();
+            Usuarios = usuarios;
+            return this;
+        }
 
-            var usuariosAdicionar = new List<Usuario>();
-            usuariosAdicionar.Add(usuarioBuilder.Build());
-            Usuarios = Usuarios.Concat(usuariosAdicionar).ToList();
+        public PerfilBuilder AddPerfilPermissoes(IEnumerable<PerfilPermissao> perfilPermissoes)
+        {
+            PerfilPermissoes = perfilPermissoes;
             return this;
         }
 

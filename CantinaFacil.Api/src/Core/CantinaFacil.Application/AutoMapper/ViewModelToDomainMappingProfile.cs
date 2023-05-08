@@ -3,7 +3,6 @@ using CantinaFacil.Application.ViewModels.Usuario;
 using CantinaFacil.Domain.Aggregates.Usuarios;
 using CantinaFacil.Application.ViewModels.Perfil;
 using CantinaFacil.Domain.Aggregates.Perfis;
-using CantinaFacil.Domain.Aggregates.Permissoes;
 
 namespace CantinaFacil.Application.AutoMapper
 {
@@ -11,10 +10,12 @@ namespace CantinaFacil.Application.AutoMapper
     {
         public ViewModelToDomainMappingProfile()
         {
-            CreateMap<UsuarioViewModel, Usuario> ();
-            CreateMap<PerfilViewModel , Perfil> ();
-            CreateMap<PermissaoViewModel, Permissao> ();
-            CreateMap<PerfilPermissaoViewModel, PerfilPermissao> ();
+            CreateMap<AdicionarUsuarioViewModel, Usuario> ();
+            CreateMap<ObterUsuarioViewModel, Usuario>();
+            CreateMap<AtualizarUsuarioViewModel, Usuario>();
+            CreateMap<ObterPerfilViewModel , Perfil> ();
+            CreateMap<ObterPermissaoViewModel, Permissao> ();
+            CreateMap<ObterPerfilPermissaoViewModel, PerfilPermissao> ();
         }
     }
 }

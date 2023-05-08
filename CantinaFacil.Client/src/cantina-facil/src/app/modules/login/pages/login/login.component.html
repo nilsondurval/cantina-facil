@@ -6,11 +6,11 @@
                     <div class="pb-2 d-flex align-items-center justify-content-center">
                         <img style="width: 60%;" src="/assets/images/cantina-facil-logo.png" alt="Cantina fácil logo">
                     </div>
-    
+
                     <div class="pb-2 d-flex align-items-center justify-content-center">
                         <h4>{{mensagens.LOGIN}}</h4>
                     </div>
-    
+
                     <div class="row">
                         <div class="col-sm-12">
                             <form (ngSubmit)="logar()" [formGroup]="loginForm" #form="ngForm" id="formulario-login">
@@ -27,16 +27,33 @@
                             </form>
                         </div>
                     </div>
-    
+
                     <div class="d-flex align-items-center justify-content-end">
                         <a href="#">
                             <p>{{mensagens.ESQUECI_MINHA_SENHA}}</p>
                         </a>
                     </div>
-    
+
                     <div class="pt-4 d-flex align-items-center justify-content-center">
                         <acc-tools-botao-confirmar [texto]="mensagens.ENTRAR" formulario="formulario-login">
                         </acc-tools-botao-confirmar>
+                    </div>
+                    <div class="pt-4 d-flex align-items-center justify-content-center">
+                        <h5>{{mensagens.NAO_POSSUI_CADASTRO}}</h5>
+                    </div>
+                    <div class="pt-4 d-flex align-items-center justify-content-center">
+                        <button mat-button style="width: 100%;" type="submit"
+                            (click)="irParaCadastro($event)"
+                            class="botao-cadastre-se d-flex align-items-center justify-content-center">
+                            <div class="d-flex align-items-center justify-content-center">
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <mat-icon>add</mat-icon>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center">
+                                    {{mensagens.CADASTRE_SE}}
+                                </div>
+                            </div>
+                        </button>
                     </div>
                 </div>
             </div>

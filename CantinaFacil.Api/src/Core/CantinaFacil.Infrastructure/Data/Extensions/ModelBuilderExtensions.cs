@@ -16,6 +16,9 @@ namespace CantinaFacil.Infrastructure.Data.Mappings.Extensions
             modelBuilder.AddConfiguration(new UsuarioMap());
             modelBuilder.AddConfiguration(new PermissaoMap());
             modelBuilder.AddConfiguration(new PerfilPermissaoMap());
+            modelBuilder.AddConfiguration(new UsuarioCantinaMap());
+            modelBuilder.AddConfiguration(new EstabelecimentoMap());
+            modelBuilder.AddConfiguration(new ProdutoMap());
         }
     }
 }

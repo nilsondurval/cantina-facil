@@ -13,6 +13,10 @@ namespace CantinaFacil.Infrastructure.Data.Mappings
             builder.ToTable("TB_USUARIO");
 
             builder
+                .HasDiscriminator<string>("TP_USUARIO")
+                .HasValue<UsuarioCantina>("Cantina");
+
+            builder
                 .HasKey(x => x.Id)
                 .HasName("PK_USUARIO");
 

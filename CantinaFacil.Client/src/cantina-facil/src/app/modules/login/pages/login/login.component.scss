@@ -11,3 +11,8 @@
 :host ::ng-deep .mat-mdc-card-content:last-child {
     padding-bottom: 100px;
 }
+
+:host ::ng-deep .botao-cadastre-se {
+    color: #fff !important;
+    background: #00A400 !important;
+}

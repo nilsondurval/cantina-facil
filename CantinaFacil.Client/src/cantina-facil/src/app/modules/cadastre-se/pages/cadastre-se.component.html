@@ -1,0 +1,97 @@
+<div class="d-flex align-items-center justify-content-center m-3 h-100">
+    <mat-card>
+        <mat-card-content>
+            <div class="d-flex align-items-center justify-content-center">
+                <div class="cadastre-se d-block">
+                    <div class="pb-2 d-flex align-items-center justify-content-center">
+                        <img style="width: 60%;" src="/assets/images/cantina-facil-logo.png" alt="Cantina fácil logo">
+                    </div>
+
+                    <div class="pb-2 d-flex align-items-center justify-content-center">
+                        <h4>{{mensagens.CADASTRE_SE}}</h4>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <form (ngSubmit)="cadastrar()" [formGroup]="cadastreSeForm" #form="ngForm"
+                                id="formulario-cadastre-se">
+                                <div class="p-2">
+                                    <acc-tools-radio-button identifier="Perfil" [inline]="true"
+                                        [label]="mensagens.TIPO_USUARIO" [parentForm]="cadastreSeForm" [ngForm]="form"
+                                        [options]="perfis" [required]="true" optionLabel="nome"
+                                        optionValue="id"></acc-tools-radio-button>
+                                </div>
+                                <div class="p-2">
+                                    <acc-tools-input-mask identifier="Cpf" [label]="mensagens.CPF" mask="999.999.999-99"
+                                        [parentForm]="cadastreSeForm" [readonly]="false" [required]="true"
+                                        [ngForm]="form">
+                                    </acc-tools-input-mask>
+                                </div>
+                                <div class="p-2">
+                                    <acc-tools-input identifier="Nome" type="text" [label]="mensagens.NOME"
+                                        [parentForm]="cadastreSeForm" [readonly]="false" [required]="true"
+                                        [ngForm]="form">
+                                    </acc-tools-input>
+                                </div>
+                                <div class="p-2">
+                                    <acc-tools-input identifier="Email" type="email" [label]="mensagens.EMAIL"
+                                        [parentForm]="cadastreSeForm" [readonly]="false" [required]="true"
+                                        [ngForm]="form">
+                                    </acc-tools-input>
+                                </div>
+                                <div class="p-2">
+                                    <acc-tools-input-mask identifier="Telefone" [label]="mensagens.TELEFONE"
+                                        mask="(99) 9 9999-9999" [parentForm]="cadastreSeForm" [readonly]="false"
+                                        [required]="true" [ngForm]="form">
+                                    </acc-tools-input-mask>
+                                </div>
+                                <div class="p-2">
+                                    <acc-tools-input identifier="Senha" type="password" [label]="mensagens.SENHA"
+                                        [parentForm]="cadastreSeForm" [readonly]="false" [required]="true"
+                                        [ngForm]="form">
+                                    </acc-tools-input>
+                                </div>
+                                <div class="p-2">
+                                    <acc-tools-input identifier="ConfirmarSenha" type="password"
+                                        [label]="mensagens.CONFIRMAR_SENHA" [parentForm]="cadastreSeForm"
+                                        [readonly]="false" [required]="true" [ngForm]="form">
+                                    </acc-tools-input>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 d-flex align-items-center justify-content-center">
+                        <button mat-button style="width: 100%;" type="submit" form="formulario-cadastre-se"
+                            class="botao-cadastre-se d-flex align-items-center justify-content-center">
+                            <div class="d-flex align-items-center justify-content-center">
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <mat-icon>add</mat-icon>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center">
+                                    {{mensagens.CADASTRAR}}
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="pt-4 d-flex align-items-center justify-content-center">
+                        <h5>{{mensagens.JA_POSSUI_CADASTRO}}</h5>
+                    </div>
+                    <div class="pt-4 d-flex align-items-center justify-content-center">
+                        <button mat-button style="width: 100%;" type="button" (click)="irParaLogin($event)"
+                            class="botao-login d-flex align-items-center justify-content-center">
+                            <div class="d-flex align-items-center justify-content-center">
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <mat-icon>done</mat-icon>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center">
+                                    {{mensagens.LOGIN}}
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

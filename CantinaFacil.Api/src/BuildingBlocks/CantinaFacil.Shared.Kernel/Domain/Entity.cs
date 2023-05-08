@@ -9,8 +9,8 @@ namespace CantinaFacil.Shared.Kernel.Domain
 {
     public abstract class Entity
     {
-        private List<Event>? _domainEvents;
-        public IReadOnlyCollection<Event>? DomainEvents => _domainEvents?.AsReadOnly();
+        private List<Event> _domainEvents;
+        public IReadOnlyCollection<Event> DomainEvents => _domainEvents.AsReadOnly();
         public int Id { get; set; }
         public bool IsValid { get; private set; }
         public bool IsInvalid => !IsValid;
@@ -18,7 +18,7 @@ namespace CantinaFacil.Shared.Kernel.Domain
 
         protected Entity()
         {
-            
+            _domainEvents = new List<Event>();
         }
 
         public bool Validate<TModel>(TModel model, AbstractValidator<TModel> validator)

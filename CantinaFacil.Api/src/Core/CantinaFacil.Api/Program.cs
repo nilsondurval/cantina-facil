@@ -1,8 +1,6 @@
 using CantinaFacil.Shared.Kernel.Api.Configurations;
 using CantinaFacil.Shared.Kernel.Api.Filters;
-using CantinaFacil.Shared.Kernel.API.Configurations;
 using CantinaFacil.Api.Configurations;
-using CantinaFacil.Application.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using System.Reflection;
 
@@ -32,7 +30,7 @@ builder.Services.AddMvc(options =>
     options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
 });
 
-AddJwtAuthentication(builder.Services);
+builder.Services.AddJwtAuthentication(builder.Configuration);
 builder.Services.AddJwtAuthorization();
 
 var app = builder.Build();
@@ -60,11 +58,3 @@ app.MapControllers();
 app.UseSwaggerConfiguration();
 
 app.Run();
-
-void AddJwtAuthentication(IServiceCollection services)
-{
-    using var scope = services.BuildServiceProvider().CreateScope();
-    var parametro = scope.ServiceProvider.GetService<IParametroAppService>();
-    var publicKey = parametro.ObterChavePublicaJwtAsync().Result;
-    services.AddJwtAuthentication(builder.Configuration, publicKey);
-}

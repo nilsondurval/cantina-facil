@@ -19,6 +19,14 @@ namespace CantinaFacil.Domain.Aggregates.Usuarios.Builders
         public UsuarioBuilder(int id)
         {
             Id = id;
+            PerfilId = default;
+            Cpf = string.Empty;
+            Nome = string.Empty;
+            Email = string.Empty;
+            Senha = string.Empty;
+            Telefone = string.Empty;
+            DataCriacao = DateTime.Now;
+            Perfil = new PerfilBuilder(0).Build();
         }
 
         public UsuarioBuilder AddPerfilId(PerfilEnum idPerfil)
@@ -67,11 +75,6 @@ namespace CantinaFacil.Domain.Aggregates.Usuarios.Builders
         {
             Perfil = perfilBuilder.Build();
             return this;
-        }
-
-        public Usuario Build()
-        {
-            return new Usuario(this);
         }
     }
 }

@@ -1,11 +1,11 @@
 ﻿using Microsoft.IdentityModel.Tokens;
-using CantinaFacil.Domain.Authentication;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using Microsoft.Extensions.Configuration;
+using CantinaFacil.Domain.Auth.Services;
 
-namespace CantinaFacil.Infrastructure.Authentication
+namespace CantinaFacil.Infrastructure.Auth
 {
     public class JwtService : IJwtService
     {
@@ -34,14 +34,14 @@ namespace CantinaFacil.Infrastructure.Authentication
             };
 
             var token = tokenHandler.CreateToken(tokenDescriptor);
-            
+
             return tokenHandler.WriteToken(token);
         }
 
         private List<Claim> CreateClaims(Dictionary<string, object> claims)
         {
             var userClaims = new List<Claim>();
-            
+
             foreach (var claim in claims)
             {
                 if (claim.Value is IEnumerable<string>)
@@ -52,6 +52,8 @@ namespace CantinaFacil.Infrastructure.Authentication
                 else
                 {
                     var value = claim.Value.ToString();
+
+                    if (!string.IsNullOrWhiteSpace(value))
                         userClaims.Add(new Claim(claim.Key, value));
                 }
             }

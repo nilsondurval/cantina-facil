@@ -2,9 +2,6 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
-using CantinaFacil.Shared.Kernel.API.Authorization.Services;
-using System;
-using System.Collections.Generic;
 using System.Security.Cryptography;
 using Microsoft.Extensions.Configuration;
 
@@ -12,7 +9,7 @@ namespace CantinaFacil.Shared.Kernel.API.Configurations
 {
     public static class JwtConfiguration
     {
-        public static void AddJwtAuthentication(this IServiceCollection services, IConfiguration configuration, string publicKey)
+        public static void AddBaseJwtAuthentication(this IServiceCollection services, IConfiguration configuration, string publicKey)
         {
             Guard.Null(services, nameof(services));
             Guard.Null(publicKey, nameof(publicKey));
@@ -49,14 +46,6 @@ namespace CantinaFacil.Shared.Kernel.API.Configurations
                 //    }
                 //};
             });
-        }
-
-        public static void AddJwtAuthentication(this IServiceCollection services, IConfiguration configuration)
-        {
-            using var scope = services.BuildServiceProvider().CreateScope();
-            var autorizacao = scope.ServiceProvider.GetService<IBaseAutorizacaoApi>();
-            var publicKey = autorizacao.ObterChavePublicaAsync().Result.Data.ToString();
-            services.AddJwtAuthentication(configuration, publicKey);
         }
     }
 }

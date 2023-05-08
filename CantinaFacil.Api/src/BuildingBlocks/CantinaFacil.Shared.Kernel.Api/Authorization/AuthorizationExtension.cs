@@ -5,25 +5,27 @@ namespace CantinaFacil.Shared.Kernel.API.Authorization
 {
     public static class AuthorizationExtension
     {
-        public static string ObterDocumento(this ClaimsPrincipal principal)
+        public static string? ObterDocumento(this ClaimsPrincipal principal)
         {  
-            return principal.ObterClaim(UserClaimTypes.Documento)
-                            .ObterValor();
+            return principal
+                .ObterClaim(UserClaimTypes.Documento)
+                ?.ObterValor();
         }
 
-        public static string ObterNome(this ClaimsPrincipal principal)
+        public static string? ObterNome(this ClaimsPrincipal principal)
         {
-            return principal.ObterClaim(UserClaimTypes.Nome)
-                            .ObterValor();
+            return principal
+                .ObterClaim(UserClaimTypes.Nome)
+                ?.ObterValor();
         }
 
-        public static string ObterPerfil(this ClaimsPrincipal principal)
+        public static string? ObterPerfil(this ClaimsPrincipal principal)
         {
             return !(principal == null) ? principal.ObterClaim(UserClaimTypes.Perfil)
-                            .ObterValor() : "Publico";
+                            ?.ObterValor() : "Publico";
         }
 
-        private static Claim ObterClaim(this ClaimsPrincipal principal, string type)
+        private static Claim? ObterClaim(this ClaimsPrincipal principal, string type)
         {
             if (principal == null)
                 return null;

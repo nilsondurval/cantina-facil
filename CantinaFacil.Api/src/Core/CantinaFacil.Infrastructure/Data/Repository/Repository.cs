@@ -3,11 +3,7 @@ using Microsoft.EntityFrameworkCore.ChangeTracking;
 using CantinaFacil.Infrastructure.Data.Context;
 using CantinaFacil.Shared.Kernel.Data;
 using CantinaFacil.Shared.Kernel.Domain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Threading.Tasks;
 
 namespace CantinaFacil.Infrastructure.Data.Repository
 {
@@ -42,14 +38,17 @@ namespace CantinaFacil.Infrastructure.Data.Repository
             return await _dbSet.AsNoTracking().ToListAsync();
         }
 
-        public virtual async Task<TEntity> GetByIdAsync(params object[] ids)
+        public virtual async Task<TEntity?> GetByIdAsync(params object[] ids)
         {
             return await _dbSet.FindAsync(ids);
         }
 
         public virtual async Task RemoveAsync(params object[] ids)
         {
-            _dbSet.Remove(await GetByIdAsync(ids));
+            var entity = await GetByIdAsync(ids);
+
+            if (entity != null)
+                _dbSet.Remove(entity);
         }
 
         public virtual void Remove(TEntity entity)

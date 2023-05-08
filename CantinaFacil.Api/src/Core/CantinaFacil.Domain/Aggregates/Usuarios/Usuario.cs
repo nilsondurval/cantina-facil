@@ -1,10 +1,11 @@
 ﻿using CantinaFacil.Domain.Aggregates.Perfis;
+using CantinaFacil.Domain.Aggregates.Perfis.Builders;
 using CantinaFacil.Domain.Aggregates.Usuarios.Builders;
 using CantinaFacil.Shared.Kernel.Domain;
 
 namespace CantinaFacil.Domain.Aggregates.Usuarios
 {
-    public partial class Usuario : Entity, IAggregateRoot
+    public class Usuario : Entity, IAggregateRoot
     {
         public int PerfilId { get; private set; }
         public string Cpf { get; private set; }
@@ -13,11 +14,18 @@ namespace CantinaFacil.Domain.Aggregates.Usuarios
         public string Senha { get; private set; }
         public string Telefone { get; private set; }
         public DateTime DataCriacao { get; private set; }
-        public Perfil Perfil { get; private set; }
+        public Perfil? Perfil { get; private set; }
 
         protected Usuario()
         {
-            
+            Id = default;
+            PerfilId = default;
+            Cpf = string.Empty;
+            Nome = string.Empty;
+            Email = string.Empty;
+            Senha = string.Empty;
+            Telefone = string.Empty;
+            DataCriacao = DateTime.Now;
         }
 
         public Usuario(UsuarioBuilder builder)
@@ -31,6 +39,11 @@ namespace CantinaFacil.Domain.Aggregates.Usuarios
             Telefone = builder.Telefone;
             Perfil = builder.Perfil;
             DataCriacao = DateTime.Now;
+        }
+
+        public void AtribuirId(int usuarioId)
+        {
+            Id = usuarioId;
         }
     }
 }

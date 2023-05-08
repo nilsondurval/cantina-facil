@@ -12,7 +12,7 @@ namespace CantinaFacil.Shared.Kernel.Data
 
         Task AddRangeAsync(IEnumerable<T> entity);
 
-        Task<T> GetByIdAsync(params object[] ids);
+        Task<T?> GetByIdAsync(params object[] ids);
 
         Task<IEnumerable<T>> GetAllAsync();
 

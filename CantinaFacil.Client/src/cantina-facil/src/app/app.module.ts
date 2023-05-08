@@ -13,6 +13,7 @@ import { CustomPaginator } from './shared/custom/custom-paginator-configuration'
 import { SharedModule } from './shared/shared.module';
 import { MenuComponent } from './shared/components/menu/menu.component';
 import { RodapeComponent } from './shared/components/rodape/rodape.component';
+import { SharedServicesModule } from './shared/services/shared-services.module';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { RodapeComponent } from './shared/components/rodape/rodape.component';
     AppRoutingModule,
 
     SharedModule,
+    SharedServicesModule.forRoot(),
 
     BlockUIModule.forRoot({
       delayStart: 0,

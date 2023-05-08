@@ -19,7 +19,7 @@ namespace CantinaFacil.Shared.Kernel.Api.Controllers
             _mediator = mediator;
         }
 
-        protected new IActionResult Response(object result = null)
+        protected new IActionResult Response(object? result = null)
         {
             var success = IsValidOperation();
 

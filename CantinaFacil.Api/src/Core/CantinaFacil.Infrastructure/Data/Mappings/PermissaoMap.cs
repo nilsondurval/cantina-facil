@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using CantinaFacil.Domain.Aggregates.Permissoes;
+using CantinaFacil.Domain.Aggregates.Perfis;
 
 namespace CantinaFacil.Infrastructure.Data.Mappings
 {

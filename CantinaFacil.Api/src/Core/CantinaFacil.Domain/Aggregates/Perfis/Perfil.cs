@@ -8,19 +8,22 @@ namespace CantinaFacil.Domain.Aggregates.Perfis
     {
         public string Nome { get; private set; }
         public DateTime DataCriacao { get; private set; }
-        public IEnumerable<Usuario> Usuarios { get; private set; }
-        public IEnumerable<PerfilPermissao> PerfilPermissoes { get; private set; }
+        public IEnumerable<Usuario>? Usuarios { get; private set; }
+        public IEnumerable<PerfilPermissao>? PerfilPermissoes { get; private set; }
 
         protected Perfil()
         {
-
+            Nome = string.Empty;
+            DataCriacao = DateTime.Now;
         }
 
         public Perfil(PerfilBuilder builder)
         {
             Id = builder.Id;
             Nome = builder.Nome;
-            DataCriacao = DateTime.Now;
+            DataCriacao = builder.DataCriacao;
+            Usuarios = builder.Usuarios;
+            PerfilPermissoes = builder.PerfilPermissoes;
         }
     }
 }
