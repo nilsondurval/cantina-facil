@@ -9,5 +9,6 @@ export const Mensagens = {
     CONFIRMAR_SENHA: 'Confirmar senha',
     CADASTRAR: 'Cadastrar',
     JA_POSSUI_CADASTRO: 'Já possui cadastro?',
-    LOGIN: 'Login'
+    LOGIN: 'Login',
+    USUARIO_CADASTRADO_SUCESSO: 'Usuário cadastrado com sucesso.'
 }

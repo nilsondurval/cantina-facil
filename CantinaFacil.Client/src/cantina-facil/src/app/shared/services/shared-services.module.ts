@@ -1,5 +1,6 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { PerfilService } from './perfil.service';
+import { UsuarioService } from './usuario.service';
 
 @NgModule({})
 export class SharedServicesModule {
@@ -7,7 +8,8 @@ export class SharedServicesModule {
     return {
       ngModule: SharedServicesModule,
       providers: [
-        PerfilService
+        PerfilService,
+        UsuarioService
       ]
     };
   }
