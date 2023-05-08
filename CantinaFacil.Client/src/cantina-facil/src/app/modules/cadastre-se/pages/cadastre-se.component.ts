@@ -70,6 +70,12 @@ export class CadastreSeComponent implements OnInit, AfterViewInit {
       return;
 
     const usuario = this.obterUsuarioDoFormulario();
+    const confirmacaoSenha = this.cadastreSeForm.get('inputConfirmarSenha').value;
+
+    if (usuario.senha !== confirmacaoSenha) {
+      this.mensagemService.mostrarMensagemDeAtencao(this.mensagens.CONFIRMACAO_SENHA_INVALIDA);
+      return;
+    }
 
     this.usuarioService.adicionar(usuario).subscribe(_ => {
       if (!_.success)
