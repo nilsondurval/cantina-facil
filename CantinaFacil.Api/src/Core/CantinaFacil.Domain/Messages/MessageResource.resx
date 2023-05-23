@@ -120,6 +120,9 @@
   <data name="CampoObrigatorio" xml:space="preserve">
     <value>Campo obrigatório.</value>
   </data>
+  <data name="RegistroNaoEncontrado" xml:space="preserve">
+    <value>Registro não encontrado.</value>
+  </data>
   <data name="UsuarioDuplicado" xml:space="preserve">
     <value>Usuario já existe.</value>
   </data>
@@ -128,8 +131,5 @@
   </data>
   <data name="UsuarioInvalido" xml:space="preserve">
     <value>Usuário Inválido.</value>
-  </data>
-  <data name="UsuarioNaoEncontrado" xml:space="preserve">
-    <value>Usuário não encontrado.</value>
   </data>
 </root>
