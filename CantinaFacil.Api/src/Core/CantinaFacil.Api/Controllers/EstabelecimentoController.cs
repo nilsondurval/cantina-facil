@@ -54,5 +54,28 @@ namespace BEC.Autorizacao.API.Controllers
             await _estabelecimentoAppService.RemoverAsync(estabelecimentoId);
             return Response();
         }
+
+
+        [HttpPost("{estabelecimentoId}/produtos")]
+        public async Task<IActionResult> AdicionarProdutoAsync([FromRoute] int estabelecimentoId, [FromBody] AdicionarProdutoViewModel produto)
+        {
+            await _estabelecimentoAppService.AdicionarProdutoAsync(estabelecimentoId, produto);
+            return Response();
+        }
+
+        [HttpPut("{estabelecimentoId}/produtos/{produtoId}")]
+        public async Task<IActionResult> AtualizarProdutoAsync([FromRoute] int estabelecimentoId, [FromRoute] int produtoId, [FromBody] AtualizarProdutoViewModel produto)
+        {
+            await _estabelecimentoAppService.AtualizarProdutoAsync(estabelecimentoId, produtoId, produto);
+            return Response();
+        }
+
+        [HttpDelete("{estabelecimentoId}/produtos/{produtoId}")]
+        [Authorize]
+        public async Task<IActionResult> RemoverAsync([FromRoute] int estabelecimentoId, [FromRoute] int produtoId)
+        {
+            await _estabelecimentoAppService.RemoverProdutoAsync(produtoId);
+            return Response();
+        }
     }
 }

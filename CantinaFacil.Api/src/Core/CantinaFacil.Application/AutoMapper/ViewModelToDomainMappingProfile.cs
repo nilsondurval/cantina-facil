@@ -22,6 +22,8 @@ namespace CantinaFacil.Application.AutoMapper
             CreateMap<AtualizarEstabelecimentoViewModel, Estabelecimento>();
             CreateMap<ObterEstabelecimentoViewModel, Estabelecimento>();
             CreateMap<ObterEstabelecimentoProdutoViewModel, Produto>();
+            CreateMap<AdicionarProdutoViewModel, Produto>();
+            CreateMap<AtualizarProdutoViewModel, Produto>();
         }
     }
 }

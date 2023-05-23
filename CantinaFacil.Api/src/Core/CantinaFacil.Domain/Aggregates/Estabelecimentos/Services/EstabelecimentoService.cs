@@ -47,6 +47,40 @@ namespace CantinaFacil.Domain.Aggregates.Estabelecimentos.Services
             await _estabelecimentoRepository.RemoveAsync(estabelecimentoId);
         }
 
+        public async Task AdicionarProdutoAsync(int estabelecimentoId, Produto produto)
+        {
+            var estabelecimento = await _estabelecimentoRepository.GetByIdAsync(estabelecimentoId);
+
+            if (estabelecimento is null)
+            {
+                RaiseError(MessageResource.RegistroNaoEncontrado);
+                return;
+            }
+
+            produto.AtribuirEstabelecimento(estabelecimentoId);
+            await _estabelecimentoRepository.AdicionarProdutoAsync(produto);
+        }
+
+        public async Task AtualizarProdutoAsync(int estabelecimentoId, int produtoId, Produto produto)
+        {
+            var estabelecimento = await _estabelecimentoRepository.GetByIdAsync(estabelecimentoId);
+
+            if (estabelecimento is null)
+            {
+                RaiseError(MessageResource.RegistroNaoEncontrado);
+                return;
+            }
+
+            produto.AtribuirEstabelecimento(estabelecimentoId);
+            produto.AtribuirId(produtoId);
+            await _estabelecimentoRepository.AtualizarProdutoAsync(produto);
+        }
+
+        public async Task RemoverProdutoAsync(int produtoId)
+        {
+            await _estabelecimentoRepository.RemoverProdutoAsync(produtoId);
+        }
+
         public void Dispose()
         {
             _estabelecimentoRepository.Dispose();

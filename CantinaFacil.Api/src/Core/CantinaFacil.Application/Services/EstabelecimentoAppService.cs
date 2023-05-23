@@ -64,6 +64,24 @@ namespace CantinaFacil.Application.Services
             await CommitAsync();
         }
 
+        public async Task AdicionarProdutoAsync(int estabelecimentoId, AdicionarProdutoViewModel produto)
+        {
+            await _estabelecimentoService.AdicionarProdutoAsync(estabelecimentoId, _mapper.Map<Produto>(produto));
+            await CommitAsync();
+        }
+
+        public async Task AtualizarProdutoAsync(int estabelecimentoId, int produtoId, AtualizarProdutoViewModel produto)
+        {
+            await _estabelecimentoService.AtualizarProdutoAsync(estabelecimentoId, produtoId, _mapper.Map<Produto>(produto));
+            await CommitAsync();
+        }
+
+        public async Task RemoverProdutoAsync(int produtoId)
+        {
+            await _estabelecimentoService.RemoverProdutoAsync(produtoId);
+            await CommitAsync();
+        }
+
         public void Dispose()
         {
             _estabelecimentoRepository.Dispose();
