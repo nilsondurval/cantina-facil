@@ -33,15 +33,31 @@ namespace CantinaFacil.Application.Services
             _mapper = mapper;
         }
 
-        public async Task AdicionarAsync(AdicionarEstabelecimentoViewModel estabelecimento)
+        public async Task AdicionarAsync(int usuarioId, AdicionarEstabelecimentoViewModel estabelecimento)
         {
-            await _estabelecimentoService.AdicionarAsync(_mapper.Map<Estabelecimento>(estabelecimento));
+            var e = _mapper.Map<Estabelecimento>(estabelecimento);
+            e.AtribuirUsuario(usuarioId);
+
+            await _estabelecimentoService.AdicionarAsync(e);
             await CommitAsync();
         }
 
-        public async Task<IEnumerable<ObterEstabelecimentoViewModel>> ObterAsync(int usuarioId)
+        public async Task<ObterEstabelecimentoViewModel?> ObterAsync(int estabelecimentoId)
         {
-            var estabelecimentos = await _estabelecimentoRepository.ObterAsync(usuarioId);
+            var estabelecimento = await _estabelecimentoRepository.ObterAsync(estabelecimentoId);
+
+            if (estabelecimento == null)
+            {
+                RaiseError(MessageResource.RegistroNaoEncontrado);
+                return null;
+            }
+
+            return _mapper.Map<ObterEstabelecimentoViewModel>(estabelecimento);
+        }
+
+        public async Task<IEnumerable<ObterEstabelecimentoViewModel>> ObterPorUsuarioAsync(int usuarioId)
+        {
+            var estabelecimentos = await _estabelecimentoRepository.ObterPorUsuarioAsync(usuarioId);
 
             if (!estabelecimentos.Any())
             {
@@ -52,9 +68,13 @@ namespace CantinaFacil.Application.Services
             return _mapper.Map<IEnumerable<ObterEstabelecimentoViewModel>>(estabelecimentos);
         }
 
-        public async Task AtualizarAsync(int estabelecimentoId, AtualizarEstabelecimentoViewModel estabelecimento)
+        public async Task AtualizarAsync(int usuarioId, int estabelecimentoId, AtualizarEstabelecimentoViewModel estabelecimento)
         {
-            await _estabelecimentoService.AtualizarAsync(estabelecimentoId, _mapper.Map<Estabelecimento>(estabelecimento));
+            var e = _mapper.Map<Estabelecimento>(estabelecimento);
+            e.AtribuirId(estabelecimentoId);
+            e.AtribuirUsuario(usuarioId);
+
+            await _estabelecimentoService.AtualizarAsync(e);
             await CommitAsync();
         }
 

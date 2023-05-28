@@ -61,6 +61,7 @@ namespace CantinaFacil.Domain.Aggregates.Usuarios.Services
 
             var claims = new Dictionary<string, object>
             {
+                { UserClaimTypes.Id, usuario.Id },
                 { UserClaimTypes.Nome, usuario.Nome },
                 { UserClaimTypes.Documento, usuario.Cpf },
                 { UserClaimTypes.Perfil, usuario.Perfil.Nome }

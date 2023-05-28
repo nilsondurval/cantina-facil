@@ -6,6 +6,7 @@ using CantinaFacil.Shared.Kernel.Mediator;
 using CantinaFacil.Shared.Kernel.Domain.Events;
 using CantinaFacil.Application.Services.Interfaces;
 using CantinaFacil.Application.ViewModels.Estabelecimentos;
+using CantinaFacil.Shared.Kernel.API.Authorization;
 
 namespace BEC.Autorizacao.API.Controllers
 {
@@ -26,24 +27,32 @@ namespace BEC.Autorizacao.API.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> AdicionarAsync([FromBody] AdicionarEstabelecimentoViewModel estabelecimento)
         {
-            await _estabelecimentoAppService.AdicionarAsync(estabelecimento);
+            await _estabelecimentoAppService.AdicionarAsync(Convert.ToInt32(User.ObterId()), estabelecimento);
             return Response();
+        }
+
+        [HttpGet("{estabelecimentoId}")]
+        [Authorize]
+        public async Task<IActionResult> ObterAsync([FromRoute] int estabelecimentoId)
+        {
+            return Response(await _estabelecimentoAppService.ObterAsync(estabelecimentoId));
         }
 
         [HttpGet]
         [Authorize]
-        public async Task<IActionResult> ObterAsync([FromQuery] int usuarioId)
+        public async Task<IActionResult> ObterAsync()
         {
-            return Response(await _estabelecimentoAppService.ObterAsync(usuarioId));
+            return Response(await _estabelecimentoAppService.ObterPorUsuarioAsync(Convert.ToInt32(User.ObterId())));
         }
 
         [HttpPut("{estabelecimentoId}")]
         [Authorize]
         public async Task<IActionResult> AtualizarAsync([FromRoute] int estabelecimentoId, [FromBody] AtualizarEstabelecimentoViewModel estabelecimento)
         {
-            await _estabelecimentoAppService.AtualizarAsync(estabelecimentoId, estabelecimento);
+            await _estabelecimentoAppService.AtualizarAsync(Convert.ToInt32(User.ObterId()), estabelecimentoId, estabelecimento);
             return Response();
         }
 

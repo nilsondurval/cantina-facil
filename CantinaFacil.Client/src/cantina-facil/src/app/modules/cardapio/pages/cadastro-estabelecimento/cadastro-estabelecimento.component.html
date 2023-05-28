@@ -1,0 +1,48 @@
+<div class="d-flex align-items-center justify-content-center m-3 h-100">
+    <mat-card>
+        <mat-card-content>
+            <div class="d-flex align-items-center justify-content-center">
+                <div class="w-100 d-block">
+                    <div class="pb-2 d-flex align-items-center justify-content-center">
+                        <h4>{{mensagens.CADASTRO_ESTABELECIMENTO}}</h4>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <form (ngSubmit)="cadastrarEstabelecimento()" [formGroup]="cadastroEstabelecimentoForm"
+                                #form="ngForm" id="formulario-cadastrar-estabelecimento">
+                                <div class="p-2">
+                                    <acc-tools-input identifier="NomeEstabelecimento" type="text" [label]="mensagens.NOME_ESTABELECIMENTO"
+                                        [parentForm]="cadastroEstabelecimentoForm" [readonly]="false" [required]="true"
+                                        [ngForm]="form">
+                                    </acc-tools-input>
+                                </div>
+                                <div class="p-2">
+                                    <acc-tools-input-mask identifier="Cnpj" [label]="mensagens.CNPJ" mask="99.999.999/9999-99"
+                                        [parentForm]="cadastroEstabelecimentoForm" [readonly]="false" [required]="true"
+                                        [ngForm]="form">
+                                    </acc-tools-input-mask>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 d-flex align-items-center justify-content-center">
+                        <button mat-button style="width: 100%;" type="submit" form="formulario-cadastrar-estabelecimento"
+                            class="botao-cadastrar-estabelecimento d-flex align-items-center justify-content-center">
+                            <div class="d-flex align-items-center justify-content-center">
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <mat-icon *ngIf="!estabelecimentoId">add</mat-icon>
+                                    <mat-icon *ngIf="estabelecimentoId">done</mat-icon>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center">
+                                    {{textoBotaoCadastro}}
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

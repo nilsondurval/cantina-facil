@@ -16,6 +16,10 @@ const routes: Routes = [
     loadChildren: () => import('./modules/cadastre-se/cadastre-se.module').then(m => m.CadastreSeModule),
   },
   {
+    path: 'cardapio',
+    loadChildren: () => import('./modules/cardapio/cardapio.module').then(m => m.CardapioModule),
+  },
+  {
     path: 'nao-autorizado',
     component: NaoAutorizadoComponent,
     data: {

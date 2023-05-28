@@ -11,7 +11,15 @@ namespace CantinaFacil.Infrastructure.Data.Repository
         {
         }
 
-        public async Task<IEnumerable<Estabelecimento>> ObterAsync(int usuarioId)
+        public async Task<Estabelecimento?> ObterAsync(int estabelecimentoId)
+        {
+            return await _context.Estabelecimentos
+                .Include(e => e.Produtos)
+                .AsNoTracking()
+                .FirstOrDefaultAsync(e => e.Id == estabelecimentoId);
+        }
+
+        public async Task<IEnumerable<Estabelecimento>> ObterPorUsuarioAsync(int usuarioId)
         {
             return await _context.Estabelecimentos
                 .Include(e => e.Produtos)

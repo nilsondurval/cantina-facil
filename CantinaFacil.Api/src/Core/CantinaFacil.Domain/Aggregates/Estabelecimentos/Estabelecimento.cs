@@ -37,5 +37,10 @@ namespace CantinaFacil.Domain.Aggregates.Estabelecimentos
         {
             Id = estabelecimentoId;
         }
+
+        public void AtribuirUsuario(int usuarioId)
+        {
+            UsuarioId = usuarioId;
+        }
     }
 }

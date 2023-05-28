@@ -22,7 +22,7 @@ namespace CantinaFacil.Domain.Aggregates.Estabelecimentos.Services
             await _estabelecimentoRepository.AddAsync(estabelecimento);
         }
 
-        public async Task AtualizarAsync(int estabelecimentoId, Estabelecimento estabelecimento)
+        public async Task AtualizarAsync(Estabelecimento estabelecimento)
         {
             if (estabelecimento is null)
             {
@@ -30,7 +30,6 @@ namespace CantinaFacil.Domain.Aggregates.Estabelecimentos.Services
                 return;
             }
 
-            estabelecimento.AtribuirId(estabelecimentoId);
             await Task.Run(() => _estabelecimentoRepository.Update(estabelecimento));
         }
 
