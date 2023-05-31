@@ -90,6 +90,19 @@ namespace CantinaFacil.Application.Services
             await CommitAsync();
         }
 
+        public async Task<ObterEstabelecimentoProdutoViewModel?> ObterProdutoAsync(int estabelecimentoId, int produtoId)
+        {
+            var produto = await _estabelecimentoRepository.ObterProdutoAsync(estabelecimentoId, produtoId);
+
+            if (produto == null)
+            {
+                RaiseError(MessageResource.RegistroNaoEncontrado);
+                return null;
+            }
+
+            return _mapper.Map<ObterEstabelecimentoProdutoViewModel>(produto);
+        }
+
         public async Task AtualizarProdutoAsync(int estabelecimentoId, int produtoId, AtualizarProdutoViewModel produto)
         {
             await _estabelecimentoService.AtualizarProdutoAsync(estabelecimentoId, produtoId, _mapper.Map<Produto>(produto));

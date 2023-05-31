@@ -16,7 +16,7 @@ export class CadastroEstabelecimentoComponent implements OnInit, AfterViewInit {
   cadastroEstabelecimentoForm?: any;
   estabelecimentoId?: number;
   mensagens = Mensagens;
-  textoBotaoCadastro?: string = 'Cadastrar';
+  textoCadastro?: string = 'Adicionar';
 
   constructor(
     private estabelecimentoService: EstabelecimentoService,
@@ -34,7 +34,7 @@ export class CadastroEstabelecimentoComponent implements OnInit, AfterViewInit {
 
     if (this.estabelecimentoId){
       this.obterEstabelecimento();
-      this.textoBotaoCadastro = 'Atualizar'
+      this.textoCadastro = 'Atualizar'
     }
   }
 

@@ -51,6 +51,12 @@ namespace CantinaFacil.Infrastructure.Data.Repository
             await _context.Produtos.AddAsync(produto);
         }
 
+        public async Task<Produto?> ObterProdutoAsync(int estabelecimentoId, int produtoId)
+        {
+            return await _context.Produtos
+                .FirstOrDefaultAsync(p => p.EstabelecimentoId == estabelecimentoId && p.Id == produtoId);
+        }
+
         public async Task AtualizarProdutoAsync(Produto produto)
         {
             await Task.Run(() => _context.Produtos.Update(produto));

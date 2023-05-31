@@ -4,11 +4,13 @@ import { CardapioComponent } from './pages/cardapio/cardapio.component';
 import { CardapioRoutingModule } from './cardapio-routing.module';
 import { EstabelecimentoService } from './services/estabelecimento.service';
 import { CadastroEstabelecimentoComponent } from './pages/cadastro-estabelecimento/cadastro-estabelecimento.component';
+import { CadastroProdutoComponent } from './pages/cadastro-produto/cadastro-produto.component';
 
 @NgModule({
   declarations: [
     CardapioComponent,
-    CadastroEstabelecimentoComponent
+    CadastroEstabelecimentoComponent,
+    CadastroProdutoComponent
   ],
   imports: [
     SharedModule,

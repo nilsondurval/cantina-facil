@@ -72,6 +72,13 @@ namespace BEC.Autorizacao.API.Controllers
             return Response();
         }
 
+        [HttpGet("{estabelecimentoId}/produtos/{produtoId}")]
+        [Authorize]
+        public async Task<IActionResult> ObterProdutoAsync([FromRoute] int estabelecimentoId, [FromRoute] int produtoId)
+        {
+            return Response(await _estabelecimentoAppService.ObterProdutoAsync(estabelecimentoId, produtoId));
+        }
+
         [HttpPut("{estabelecimentoId}/produtos/{produtoId}")]
         public async Task<IActionResult> AtualizarProdutoAsync([FromRoute] int estabelecimentoId, [FromRoute] int produtoId, [FromBody] AtualizarProdutoViewModel produto)
         {

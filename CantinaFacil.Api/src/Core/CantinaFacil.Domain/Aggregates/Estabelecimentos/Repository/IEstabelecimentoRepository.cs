@@ -8,6 +8,7 @@ namespace CantinaFacil.Domain.Aggregates.Estabelecimentos.Repository
         Task<Estabelecimento?> ObterAsync(int estabelecimentoId);
         Task<IEnumerable<Estabelecimento>> ObterPorUsuarioAsync(int usuarioId);
         Task AdicionarProdutoAsync(Produto produto);
+        Task<Produto?> ObterProdutoAsync(int estabelecimentoId, int produtoId);
         Task AtualizarProdutoAsync(Produto produto);
         Task RemoverProdutoAsync(int produtoId);
     }

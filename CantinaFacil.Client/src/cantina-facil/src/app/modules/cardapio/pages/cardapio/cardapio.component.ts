@@ -49,7 +49,7 @@ export class CardapioComponent implements OnInit {
         },
         icon: 'pi pi-plus',
         command: () => {
-          this.router.navigate(['cardapio/cadastro-estabelecimento']);
+          this.router.navigate(['cardapio/estabelecimentos']);
         }
       },
       {
@@ -58,7 +58,7 @@ export class CardapioComponent implements OnInit {
         },
         icon: 'pi pi-pencil',
         command: () => {
-          this.router.navigate(['cardapio/cadastro-estabelecimento', this.estabelecimentoSelecionado?.id]);
+          this.router.navigate(['cardapio/estabelecimentos', this.estabelecimentoSelecionado?.id]);
         }
       },
       {
@@ -67,7 +67,7 @@ export class CardapioComponent implements OnInit {
         },
         icon: 'pi pi-tag',
         command: () => {
-          
+          this.router.navigate(['cardapio/estabelecimentos', this.estabelecimentoSelecionado?.id, 'produtos']);
         }
       },
     ]
@@ -87,5 +87,9 @@ export class CardapioComponent implements OnInit {
   selecionarEstabelecimento(): void {
     const estabelecimentoSelecionadoId = this.cardapioForm?.get('selectEstabelecimento')?.value;
     this.estabelecimentoSelecionado = this.estabelecimentos?.find(e => e.id == estabelecimentoSelecionadoId);
+  }
+
+  irParaEdicaoProduto(produtoId?: number): void {
+    this.router.navigate(['cardapio/estabelecimentos/', this.estabelecimentoSelecionado?.id, 'produtos', produtoId]);
   }
 }

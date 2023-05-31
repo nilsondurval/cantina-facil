@@ -37,8 +37,12 @@ export class EstabelecimentoService {
         return this.http.post<ResponseCustom<void>>(`${environment.pathApi}/estabelecimentos/${produto.estabelecimentoId}/produtos`, produto);
     }
 
+    obterProduto(estabelecimentoId?: number, produtoId?: number): Observable<ResponseCustom<Produto>> {
+        return this.http.get<ResponseCustom<Produto>>(`${environment.pathApi}/estabelecimentos/${estabelecimentoId}/produtos/${produtoId}`);
+    }
+
     atualizarProduto(produto: Produto): Observable<ResponseCustom<void>> {
-        return this.http.put<ResponseCustom<void>>(`${environment.pathApi}/estabelecimentos/${produto.estabelecimentoId}/produtos`, produto);
+        return this.http.put<ResponseCustom<void>>(`${environment.pathApi}/estabelecimentos/${produto.estabelecimentoId}/produtos/${produto.id}`, produto);
     }
 
     removerProduto(produto: Produto): Observable<ResponseCustom<void>> {
