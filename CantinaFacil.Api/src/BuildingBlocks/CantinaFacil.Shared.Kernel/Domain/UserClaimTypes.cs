@@ -2,6 +2,8 @@
 {
     public class UserClaimTypes
     {
+        public const string Id = "id";
+
         public const string Nome = "nome";
 
         public const string Login = "login";

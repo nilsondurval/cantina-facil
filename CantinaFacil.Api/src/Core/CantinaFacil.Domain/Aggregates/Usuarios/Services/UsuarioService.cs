@@ -28,6 +28,12 @@ namespace CantinaFacil.Domain.Aggregates.Usuarios.Services
 
         public async Task AtualizarAsync(int usuarioId, Usuario usuario)
         {
+            if (usuario is null)
+            {
+                RaiseError(MessageResource.RegistroNaoEncontrado);
+                return;
+            }
+
             usuario.AtribuirId(usuarioId);
             await Task.Run(() => _usuarioRepository.Update(usuario));
         }
@@ -38,7 +44,7 @@ namespace CantinaFacil.Domain.Aggregates.Usuarios.Services
 
             if (usuario is null)
             {
-                RaiseError(MessageResource.UsuarioNaoEncontrado);
+                RaiseError(MessageResource.RegistroNaoEncontrado);
                 return;
             }
 
@@ -55,6 +61,7 @@ namespace CantinaFacil.Domain.Aggregates.Usuarios.Services
 
             var claims = new Dictionary<string, object>
             {
+                { UserClaimTypes.Id, usuario.Id },
                 { UserClaimTypes.Nome, usuario.Nome },
                 { UserClaimTypes.Documento, usuario.Cpf },
                 { UserClaimTypes.Perfil, usuario.Perfil.Nome }

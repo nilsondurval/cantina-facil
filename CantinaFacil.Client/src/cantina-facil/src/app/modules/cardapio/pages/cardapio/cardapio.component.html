@@ -1,0 +1,52 @@
+<div class="p-4">
+    <form [formGroup]="cardapioForm" #form="ngForm" id="formulario-agendamento">
+        <div class="row d-flex align-items-center justify-content-start">
+            <div class="col-sm-4 d-flex align-items-center justify-content-start">
+                <div class="d-flex align-items-center justify-content-center">
+                    <acc-tools-select identifier="Estabelecimento" [label]="mensagens.ESTABELECIMENTO"
+                        [required]="false" (change)="selecionarEstabelecimento()" [parentForm]="cardapioForm"
+                        [ngForm]="form" [options]="estabelecimentos" optionLabel="nome" optionValue="id">
+                    </acc-tools-select>
+                    <div class="p-2"></div>
+                    <p-speedDial [model]="opcoes" direction="right"></p-speedDial>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<div class="row">
+    <ng-container *ngFor="let produto of estabelecimentoSelecionado?.produtos">
+        <div class="col-sm-3">
+            <div class="p-4">
+                <mat-card>
+                    <mat-card-title>
+                        <div class="d-flex align-items-center justify-content-center p-3">
+                            {{produto.nome}}
+                        </div>
+                    </mat-card-title>
+                    <mat-card-content>
+                        <div class="d-flex align-items-center justify-content-center">
+                            <img src="assets/images/image-placeholder.png" height="200" class="mr-2">
+                        </div>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <div class="d-flex align-items-center justify-content-end w-100">
+                            <div class="p-2">
+                                <button mat-mini-fab color="warn" (click)="removerProduto(produto)">
+                                    <mat-icon>delete</mat-icon>
+                                </button>
+                            </div>
+                            <div class="p-2">
+                                <button mat-mini-fab color="primary" (click)="irParaEdicaoProduto(produto.id)">
+                                    <mat-icon>edit</mat-icon>
+                                </button>
+                            </div>
+                        </div>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+        </div>
+    </ng-container>
+</div>

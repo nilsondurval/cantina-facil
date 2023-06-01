@@ -1,0 +1,54 @@
+<div class="d-flex align-items-center justify-content-center m-3 h-100">
+    <mat-card>
+        <mat-card-content>
+            <div class="d-flex align-items-center justify-content-center">
+                <div class="w-100 d-block">
+                    <div class="pb-2 d-flex align-items-center justify-content-center">
+                        <h4>{{textoCadastro}}&nbsp;{{mensagens.PRODUTO}}</h4>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <form (ngSubmit)="cadastrarProduto()" [formGroup]="cadastroProdutoForm" #form="ngForm"
+                                id="formulario-cadastrar-produto">
+                                <div class="p-2">
+                                    <acc-tools-select identifier="Estabelecimento" [label]="mensagens.ESTABELECIMENTO"
+                                        [required]="false" [parentForm]="cadastroProdutoForm" [ngForm]="form"
+                                        [options]="estabelecimentos" optionLabel="nome" optionValue="id">
+                                    </acc-tools-select>
+                                </div>
+                                <div class="p-2">
+                                    <acc-tools-input identifier="NomeProduto" type="text"
+                                        [label]="mensagens.NOME_PRODUTO" [parentForm]="cadastroProdutoForm"
+                                        [readonly]="false" [required]="true" [ngForm]="form">
+                                    </acc-tools-input>
+                                </div>
+                                <div class="p-2">
+                                    <acc-tools-input identifier="ValorProduto" type="number"
+                                        [label]="mensagens.VALOR_PRODUTO" [parentForm]="cadastroProdutoForm"
+                                        [readonly]="false" [required]="true" [ngForm]="form">
+                                    </acc-tools-input>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 d-flex align-items-center justify-content-center">
+                        <button mat-button style="width: 100%;" type="submit" form="formulario-cadastrar-produto"
+                            class="botao-cadastrar-estabelecimento d-flex align-items-center justify-content-center">
+                            <div class="d-flex align-items-center justify-content-center">
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <mat-icon *ngIf="!produtoId">add</mat-icon>
+                                    <mat-icon *ngIf="produtoId">done</mat-icon>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center">
+                                    {{textoCadastro}}
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

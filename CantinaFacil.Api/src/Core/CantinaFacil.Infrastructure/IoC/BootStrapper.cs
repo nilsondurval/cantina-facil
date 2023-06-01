@@ -14,6 +14,8 @@ using CantinaFacil.Application.Services;
 using CantinaFacil.Domain.Aggregates.Parametros.Repository;
 using CantinaFacil.Domain.Auth.Services;
 using CantinaFacil.Domain.Aggregates.Perfis.Repository;
+using CantinaFacil.Domain.Aggregates.Estabelecimentos.Services;
+using CantinaFacil.Domain.Aggregates.Estabelecimentos.Repository;
 
 namespace CantinaFacil.Infrastructure.IoC
 {
@@ -26,6 +28,7 @@ namespace CantinaFacil.Infrastructure.IoC
             services.AddScoped<IParametroAppService, ParametroAppService>();
             services.AddScoped<IUsuarioAppService, UsuarioAppService>();
             services.AddScoped<IPerfilAppService, PerfilAppService>();
+            services.AddScoped<IEstabelecimentoAppService, EstabelecimentoAppService>();
 
             // Mediator
             services.AddScoped<IMediatorHandler, MediatorHandler>();
@@ -35,12 +38,14 @@ namespace CantinaFacil.Infrastructure.IoC
 
             // Domain
             services.AddScoped<IUsuarioService, UsuarioService>();
+            services.AddScoped<IEstabelecimentoService, EstabelecimentoService>();
             services.AddScoped<IJwtService, JwtService>();
 
             // Data
             services.AddScoped<IUnitOfWork, UnitOfWork>();            
             services.AddScoped<IUsuarioRepository, UsuarioRepository>();
             services.AddScoped<IPerfilRepository, PerfilRepository>();
+            services.AddScoped<IEstabelecimentoRepository, EstabelecimentoRepository>();
             services.AddScoped<IParametroRepository, ParametroRepository>();
         }
     }

@@ -24,6 +24,7 @@ import { DialogModule } from 'primeng/dialog';
 import { FileUploadModule } from 'primeng/fileupload';
 import { TooltipModule } from 'primeng/tooltip';
 import { ProgressBarModule } from 'primeng/progressbar';
+import { SpeedDialModule } from 'primeng/speeddial';
 
 // ngx-bec
 import {
@@ -81,6 +82,7 @@ import { MenubarModule } from 'primeng/menubar';
     FileUploadModule,
     TooltipModule,
     ProgressBarModule,
+    SpeedDialModule,
 
     // ngx-bec
     AcceleratorOpcoesUsuarioModule,
@@ -133,6 +135,7 @@ import { MenubarModule } from 'primeng/menubar';
     FileUploadModule,
     TooltipModule,
     ProgressBarModule,
+    SpeedDialModule,
 
     // ngx-bec
     AcceleratorOpcoesUsuarioModule,

@@ -46,7 +46,7 @@ namespace CantinaFacil.Application.Services
 
             if (usuario is null)
             {
-                RaiseError(MessageResource.UsuarioNaoEncontrado);
+                RaiseError(MessageResource.RegistroNaoEncontrado);
                 return null;
             }
 

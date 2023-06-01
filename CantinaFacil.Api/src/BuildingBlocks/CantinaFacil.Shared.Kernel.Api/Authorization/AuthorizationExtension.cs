@@ -5,6 +5,13 @@ namespace CantinaFacil.Shared.Kernel.API.Authorization
 {
     public static class AuthorizationExtension
     {
+        public static string? ObterId(this ClaimsPrincipal principal)
+        {
+            return principal
+                .ObterClaim(UserClaimTypes.Id)
+                ?.ObterValor();
+        }
+
         public static string? ObterDocumento(this ClaimsPrincipal principal)
         {  
             return principal

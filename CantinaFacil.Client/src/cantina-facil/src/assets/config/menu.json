@@ -1,6 +1,7 @@
 [
   {
-    "label": "Cardápio"
+    "label": "Cardápio",
+    "routerLink": "cardapio"
   },
   {
     "label": "Pedidos"

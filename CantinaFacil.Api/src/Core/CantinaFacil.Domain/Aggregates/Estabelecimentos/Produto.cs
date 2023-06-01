@@ -9,7 +9,7 @@ namespace CantinaFacil.Domain.Aggregates.Estabelecimentos
         public string Nome { get; private set; }
         public decimal Valor { get; private set; }
 
-        public Estabelecimento Estabelecimento { get; private set; }
+        public Estabelecimento? Estabelecimento { get; private set; }
 
         protected Produto()
         {
@@ -17,7 +17,6 @@ namespace CantinaFacil.Domain.Aggregates.Estabelecimentos
             EstabelecimentoId = default;
             Nome = string.Empty;
             Valor = default;
-            Estabelecimento = new EstabelecimentoBuilder(0).Build();
         }
 
         public Produto(ProdutoBuilder builder)
@@ -27,6 +26,16 @@ namespace CantinaFacil.Domain.Aggregates.Estabelecimentos
             Nome = builder.Nome;
             Valor = builder.Valor;
             Estabelecimento = builder.Estabelecimento;
+        }
+
+        public void AtribuirEstabelecimento(int estabelecimentoId)
+        {
+            EstabelecimentoId = estabelecimentoId;
+        }
+
+        public void AtribuirId(int produtoId)
+        {
+            Id = produtoId;
         }
     }
 }

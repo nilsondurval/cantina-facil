@@ -70,6 +70,15 @@ namespace CantinaFacil.Domain.Messages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Registro não encontrado..
+        /// </summary>
+        public static string RegistroNaoEncontrado {
+            get {
+                return ResourceManager.GetString("RegistroNaoEncontrado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Usuario já existe..
         /// </summary>
         public static string UsuarioDuplicado {
@@ -93,15 +102,6 @@ namespace CantinaFacil.Domain.Messages {
         public static string UsuarioInvalido {
             get {
                 return ResourceManager.GetString("UsuarioInvalido", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Usuário não encontrado..
-        /// </summary>
-        public static string UsuarioNaoEncontrado {
-            get {
-                return ResourceManager.GetString("UsuarioNaoEncontrado", resourceCulture);
             }
         }
     }
