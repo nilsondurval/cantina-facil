@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Estabelecimento } from '../../models/estabelecimento.model';
 import { EstabelecimentoService } from '../../services/estabelecimento.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { AcceleratorAuthService } from '@npdjunior/ngx-accelerator-tools';
-import { MenuItem } from 'primeng/api';
+import { AcceleratorAuthService, AcceleratorMensagemService } from '@npdjunior/ngx-accelerator-tools';
+import { ConfirmationService, MenuItem } from 'primeng/api';
 import { Mensagens } from '../../mensagens/mensagens';
 import { Router } from '@angular/router';
+import { Produto } from '../../models/produto.model';
 
 @Component({
   selector: 'cantina-facil-cardapio',
@@ -25,6 +26,8 @@ export class CardapioComponent implements OnInit {
   constructor(
     private estabelecimentoService: EstabelecimentoService,
     private authService: AcceleratorAuthService,
+    private mensagemService: AcceleratorMensagemService,
+    private confirmationService: ConfirmationService,
     private router: Router,
     private fb: FormBuilder
   ) { }
@@ -73,13 +76,16 @@ export class CardapioComponent implements OnInit {
     ]
   }
 
-  obterEstabelecimentos(): void {
+  obterEstabelecimentos(estabelecimentoId?: number): void {
     this.estabelecimentoService.obterTodos().subscribe(estabelecimentos => {
       this.estabelecimentos = estabelecimentos.data;
 
-      if (estabelecimentos) {
+      if (estabelecimentos && !estabelecimentoId) {
         this.cardapioForm.get('selectEstabelecimento').setValue(this.estabelecimentos[0].id);
         this.estabelecimentoSelecionado = this.estabelecimentos[0];
+      } else {
+        this.cardapioForm.get('selectEstabelecimento').setValue(estabelecimentoId);
+        this.estabelecimentoSelecionado = this.estabelecimentos.find(e => e.id == estabelecimentoId);
       }
     });
   }
@@ -87,6 +93,22 @@ export class CardapioComponent implements OnInit {
   selecionarEstabelecimento(): void {
     const estabelecimentoSelecionadoId = this.cardapioForm?.get('selectEstabelecimento')?.value;
     this.estabelecimentoSelecionado = this.estabelecimentos?.find(e => e.id == estabelecimentoSelecionadoId);
+  }
+
+  removerProduto(produto: Produto): void {
+    this.confirmationService.confirm({
+      message: Mensagens.CONFIRMAR_EXCLUSAO_PRODUTO,
+      key: 'confirm1',
+      accept: () => {
+        this.estabelecimentoService.removerProduto(produto.estabelecimentoId, produto.id).subscribe(_ => {
+          this.obterEstabelecimentos(produto.estabelecimentoId);
+          this.mensagemService.mostrarMensagemDeSucesso(this.mensagens.PRODUTO_EXCLUIDO_SUCESSO);
+        });
+      },
+      reject: (type: any) => {
+
+      }
+    });
   }
 
   irParaEdicaoProduto(produtoId?: number): void {

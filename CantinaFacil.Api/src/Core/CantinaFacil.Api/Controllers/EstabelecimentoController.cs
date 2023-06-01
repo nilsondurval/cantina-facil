@@ -66,6 +66,7 @@ namespace BEC.Autorizacao.API.Controllers
 
 
         [HttpPost("{estabelecimentoId}/produtos")]
+        [Authorize]
         public async Task<IActionResult> AdicionarProdutoAsync([FromRoute] int estabelecimentoId, [FromBody] AdicionarProdutoViewModel produto)
         {
             await _estabelecimentoAppService.AdicionarProdutoAsync(estabelecimentoId, produto);
@@ -80,6 +81,7 @@ namespace BEC.Autorizacao.API.Controllers
         }
 
         [HttpPut("{estabelecimentoId}/produtos/{produtoId}")]
+        [Authorize]
         public async Task<IActionResult> AtualizarProdutoAsync([FromRoute] int estabelecimentoId, [FromRoute] int produtoId, [FromBody] AtualizarProdutoViewModel produto)
         {
             await _estabelecimentoAppService.AtualizarProdutoAsync(estabelecimentoId, produtoId, produto);

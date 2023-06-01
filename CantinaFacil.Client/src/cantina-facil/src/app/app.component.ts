@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Location } from '@angular/common';
 import { AcceleratorAppConfigService, AcceleratorAuthService } from '@npdjunior/ngx-accelerator-tools';
 
 @Component({
@@ -9,7 +10,8 @@ import { AcceleratorAppConfigService, AcceleratorAuthService } from '@npdjunior/
 export class AppComponent {
   constructor(
     private appConfigService: AcceleratorAppConfigService,
-    private authService: AcceleratorAuthService
+    private authService: AcceleratorAuthService,
+    private location: Location
   ) { }
 
   ngOnInit() {
@@ -18,6 +20,6 @@ export class AppComponent {
 
   configurar(): void {
     this.appConfigService.init();
-    this.authService.init();
+    this.authService.init(this.location.path());
   }
 }

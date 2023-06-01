@@ -34,13 +34,12 @@
                     <mat-card-actions>
                         <div class="d-flex align-items-center justify-content-end w-100">
                             <div class="p-2">
-                                <button mat-mini-fab color="warn" aria-label="Example icon button with a delete icon">
+                                <button mat-mini-fab color="warn" (click)="removerProduto(produto)">
                                     <mat-icon>delete</mat-icon>
                                 </button>
                             </div>
                             <div class="p-2">
-                                <button mat-mini-fab color="primary" (click)="irParaEdicaoProduto(produto.id)"
-                                    aria-label="Example icon button with a delete icon">
+                                <button mat-mini-fab color="primary" (click)="irParaEdicaoProduto(produto.id)">
                                     <mat-icon>edit</mat-icon>
                                 </button>
                             </div>

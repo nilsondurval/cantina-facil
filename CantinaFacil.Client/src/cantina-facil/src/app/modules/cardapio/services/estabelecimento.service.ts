@@ -45,7 +45,7 @@ export class EstabelecimentoService {
         return this.http.put<ResponseCustom<void>>(`${environment.pathApi}/estabelecimentos/${produto.estabelecimentoId}/produtos/${produto.id}`, produto);
     }
 
-    removerProduto(produto: Produto): Observable<ResponseCustom<void>> {
-        return this.http.delete<ResponseCustom<void>>(`${environment.pathApi}/estabelecimentos/${produto.estabelecimentoId}/produtos/${produto.id}`);
+    removerProduto(estabelecimentoId?: number, produtoId?: number): Observable<ResponseCustom<void>> {
+        return this.http.delete<ResponseCustom<void>>(`${environment.pathApi}/estabelecimentos/${estabelecimentoId}/produtos/${produtoId}`);
     }
 }
