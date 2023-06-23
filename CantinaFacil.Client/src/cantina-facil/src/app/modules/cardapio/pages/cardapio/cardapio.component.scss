@@ -1,5 +1,5 @@
 :host ::ng-deep .formulario {
-    background: #333;
+    background: #f8f9fa;
     border-radius: 15px;
 }
 
@@ -51,4 +51,8 @@
     background-color: #FF4800;
     color: #fff;
     height: 3.5rem;
+}
+
+:host ::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: #f8f9fa;
 }
