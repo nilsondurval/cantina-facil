@@ -40,7 +40,8 @@ export class CardapioComponent implements OnInit {
 
   iniciarlizarFormulario(): void {
     this.cardapioForm = this.fb.group({
-      selectEstabelecimento: [null]
+      selectEstabelecimento: [null],
+      inputPesquisa: [null]
     });
   }
 
