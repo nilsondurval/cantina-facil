@@ -6,3 +6,16 @@
 :host ::ng-deep .mat-mdc-card {
     width: 25%;
 }
+
+:host ::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: #f8f9fa;
+}
+
+:host ::ng-deep .mdc-text-field--disabled.mdc-text-field--filled {
+    background-color: #f8f9fa;
+}
+
+:host ::ng-deep .mat-mdc-card {
+    border-radius: 15px !important;
+    background-color: #f8f9fa;
+}

@@ -11,5 +11,6 @@ export const Mensagens = {
     PRODUTO_CADASTRADO_SUCESSO: 'Produto cadastrado com sucesso',
     PRODUTO_ATUALIZADO_SUCESSO: 'Produto atualizado com sucesso',
     CONFIRMAR_EXCLUSAO_PRODUTO: 'Confirma a exclusão do produto?',
-    PRODUTO_EXCLUIDO_SUCESSO: 'Produto excluido com sucesso'
+    PRODUTO_EXCLUIDO_SUCESSO: 'Produto excluido com sucesso',
+    PESQUISA: 'Pesquisa'
 }

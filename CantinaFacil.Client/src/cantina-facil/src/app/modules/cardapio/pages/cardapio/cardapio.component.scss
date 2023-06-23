@@ -1,5 +1,15 @@
+:host ::ng-deep .formulario {
+    background: #f8f9fa;
+    border-radius: 15px;
+}
+
 :host ::ng-deep .mat-mdc-form-field-subscript-wrapper {
     height: 0;
+}
+
+:host ::ng-deep .mat-mdc-card {
+    border-radius: 15px !important;
+    background-color: #f8f9fa;
 }
 
 :host ::ng-deep .botao-adicionar-produto {
@@ -22,4 +32,27 @@
 
 :host ::ng-deep acc-tools-select {
     width: 24vw;
+}
+
+:host ::ng-deep .valor {
+    color: #FF4800;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 !important;
+}
+
+:host ::ng-deep .p-button {
+    background-color: #FF4800 !important;
+    color: #fff;
+    border: none !important;
+}
+
+:host ::ng-deep .botao-pesquisar {
+    background-color: #FF4800;
+    color: #fff;
+    height: 3.5rem;
+}
+
+:host ::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: #f8f9fa;
 }
